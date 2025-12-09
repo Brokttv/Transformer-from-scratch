@@ -142,7 +142,7 @@ class MultiHeadAttention(nn.Module):
 
    attention = self.Attention(query,key,value,mask ) # (batch, num_heads, seq_len, head_dim)
 
-   concat = attention.transpose(1,2).flatten(-2,-1)
+   concat = attention.transpose(1,2).flatten(-2,-1) #(batch, seq_len, emb_size)
    return  self.out(concat) #--> w_out
 
 
